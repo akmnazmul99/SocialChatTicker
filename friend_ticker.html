@@ -18,31 +18,29 @@
         </div>
         <div class="chat_box_hidden_container">
             <div class="message_friends_divider_others chat_box_container" style="height: 150px; width: 100%; overflow-y: scroll; overflow-x: hidden; background-color: #fff;">
-
-                <div class="row" ng-repeat="message in chatUserDetails.msgComBox">
-                    <div class="col-md-12">
-                        <div class="message_owner_style pull-right">
-                            <span  class="message_owner_content_style">{{ message}}</span>
+                <div ng-repeat="message in chatUserDetails.msgComBox">
+                    <div class="row" ng-if="message.senderInfo.userId === this.chatUserDetails.userId">
+                        <div class="col-md-12">
+                            <div class="message_owner_style pull-right">
+                                <span  class="message_owner_content_style" >{{ message.message}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="message.senderInfo.userId !== this.chatUserDetails.userId">
+                        <div class="col-md-12">
+                            <div class="message_friend_style pull-left">
+                                <span class="message_friend_content_style" >{{  message.message}}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="message_friend_style pull-left">
-                            <span class="message_friend_content_style">Fine. Are you a doctor?</span>
-                        </div>
-                    </div>
-                </div>
-
             </div>
             <div class="textarea_background_style">
-                <div class="row">
+                <div class="row" >
                     <div class="col-md-8">
-                        <div class="col-md-12" name="dddd">
-                            <form ng-submit="setMessage(userId)">
-                                <input type="text" name="chatMessageDispalyer" class="chatting_input_area" ng-keyup="sendMessage($event, chatUserDetails)" ng-model = "chatUserDetails.writtenMsg">
-                            </form>
-                        </div>
+                                <form ng-submit="setMessage(userId)" >
+                                    <input type="text" name="chatMessageDisplayer" class="chatting_input_area" ng-keyup="sendMessage($event, chatUserDetails)" ng-model = "chatUserDetails.writtenMsg">
+                                </form>
                     </div>
                     <div class="col-md-2">
                         <form action="upload.php" method="post" style="margin-left: 5px; margin-top: 5px;">
