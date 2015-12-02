@@ -77,9 +77,9 @@
                             <img src="resources/images/comment_icon.png">
                         </div>
                         <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="dropdownMenu2">
-                            <div class="row" ng-repeat="chatUserDetails in miniBoxes" >
+                            <div class="row" ng-repeat="chatUserDetails in miniBoxes">
                                 <div class="col-md-10">
-                                    <li class="MiniBoxesUser" ng-click="openMiniBoxesUser(clickMiniBoxesUser)"><a>{{chatUserDetails.firstName + " " + chatUserDetails.lastName}}</a></li>
+                                    <li class="MiniBoxesUser" ng-click="openMiniBoxesUser(this)"><a>{{chatUserDetails.firstName + " " + chatUserDetails.lastName}}</a></li>
                                 </div>
                                 <div class="col-md-2">
                                     <button type="button" class="close" aria-label="Close" ng-click="removeMiniBoxesUser(item)" ><span aria-hidden="true">&times;</span></button>

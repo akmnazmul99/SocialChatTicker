@@ -13,9 +13,8 @@ angular.module('chatWidget', ['services.chat'])
 
             $scope.sendMessage = function(event, chatUserDetails) {
                 if (event.keyCode === 13) {
-                    console.log(chatUserDetails.writtenMsg);
+                console.log(chatUserDetails);
                     chatUserDetails.msgComBox.push(chatUserDetails.writtenMsg );
-//                      console.log(chatUserDetails.userId);
                     chatUserDetails.writtenMsg = "";
                 };
             };
@@ -102,8 +101,9 @@ angular.module('chatWidget', ['services.chat'])
             
             
             $scope.openMiniBoxesUser = function(clickMiniBoxesUser) {
+                var miniBoxesIndex = $scope.miniBoxes.indexOf(clickMiniBoxesUser);
+                $scope.miniBoxes.pop(miniBoxesIndex);
+                
                 $scope.chatBoxes.splice(2, 1);
-                 
             };
-            
         });
